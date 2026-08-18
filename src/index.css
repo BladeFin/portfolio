@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   🎨 DESIGN TOKENS — edit the numbers here to re-theme the site
+   ============================================================
+   Each color is stored as its red, green, and blue channels, with
+   the hex equivalent in a comment. E.g. #94c595 = 148 197 149.
+   (Pick new values in any color picker, then update the channels
+   and the comment.)
+
+   Everything on the site is built from these five tokens:
+     background     — page background & dark surfaces
+     primary        — main accent: body text, buttons, borders
+     primary-light  — headings, brand & emphasized text
+     accent         — secondary accent: small labels, glows
+     muted          — secondary text & subtle borders
+   ------------------------------------------------------------ */
+:root {
+  --color-background: 48 48 48; /* #303030 - Graphite */
+  --color-primary: 141 169 143; /* #8da98f - Sage */
+  --color-primary-light: 183 208 185; /* #b7d0b9 - Sage Light */
+  --color-accent: 206 160 126; /* #cea07e - Light Bronze */
+  --color-muted: 110 136 152; /* #6e8898 - Slate Grey */
+}
+
+/* --- Global look & feel -------------------------------------------------- */
+
+/* Height of the sticky navbar. Single source of truth: NavBar.tsx sizes the
+   header to this same variable, and scroll snapping uses it as the offset,
+   so every section lands exactly flush below the pinned header. */
+:root {
+  --header-h: 4.5rem; /* 72px — mobile header (hamburger layout) */
+}
+
+@media (min-width: 768px) {
+  :root {
+    --header-h: 3.5rem; /* 56px — desktop header (inline links) */
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Snap offset for the pinned header: sections align to just below it. */
+  scroll-padding-top: var(--header-h);
+  /* CSS Scroll Snap (mandatory): the page locks onto the nearest section,
+     TikTok/Reels style. Sections opt in via `snap-start`; the taller
+     "see all" grids scroll internally so every section stays full-screen. */
+  scroll-snap-type: y mandatory;
+}
+
+body {
+  @apply bg-background text-primary font-sans antialiased;
+  font-feature-settings: "cv11", "ss01", "ss03";
+}
+
+/* Hide the default focus ring for mouse users, keep it for keyboard nav. */
+:focus-visible {
+  @apply outline-none ring-2 ring-primary-light ring-offset-2 ring-offset-background;
+}
+
+/* Reduce-motion friendliness. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
