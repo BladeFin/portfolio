@@ -95,21 +95,37 @@ export default function FullProject({
             ))}
           </motion.ul>
 
-          <motion.a
-            variants={{
-              hidden: { opacity: 0, y: 12 },
-              visible: { opacity: 1, y: 0 },
-            }}
-            transition={{ duration: 0.5 }}
-            href={project.link}
-            className="inline-flex items-center gap-2 rounded-full border border-primary px-8 py-3 text-xs uppercase tracking-[0.3em] text-primary-light transition-colors duration-200 hover:bg-primary hover:text-background"
-          >
-            View project on GitHub
-            <span aria-hidden="true">→</span>
-          </motion.a>
+          {project.links && project.links.length > 0 && (
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 12 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              transition={{ duration: 0.5 }}
+              className="flex flex-wrap gap-4"
+            >
+              {project.links.map((link) => {
+                const external = /^https?:/.test(link.url);
+                return (
+                  <motion.a
+                    key={link.label}
+                    href={link.url}
+                    {...(external
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {})}
+                    className="inline-flex items-center gap-2 rounded-full border border-primary px-8 py-3 text-xs uppercase tracking-[0.3em] text-primary-light transition-colors duration-200 hover:bg-primary hover:text-background"
+                  >
+                    {link.label}
+                    <span aria-hidden="true">{external ? "↗" : "→"}</span>
+                  </motion.a>
+                );
+              })}
+            </motion.div>
+          )}
         </div>
 
-        {/* Visual placeholder column. Could host a project image / video later. */}
+        {/* Visual column — shows the project image once `project.image` is
+            set (see data.ts), otherwise the decorative placeholder. */}
         <motion.div
           variants={{
             hidden: { opacity: 0, scale: 0.96 },
@@ -118,31 +134,42 @@ export default function FullProject({
           transition={{ duration: 0.7 }}
           className="md:col-span-5"
         >
-          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl border border-muted/30 bg-gradient-to-br from-primary/15 via-background to-accent/15">
-            {/* Decorative layered rings */}
-            <div
-              aria-hidden="true"
-              className="absolute inset-0 flex items-center justify-center"
-            >
-              <div className="h-3/4 w-3/4 rounded-full border border-primary/20" />
+          {project.image ? (
+            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl border border-muted/30 bg-background">
+              <img
+                src={project.image}
+                alt={`${project.title} — screenshot`}
+                className="h-full w-full object-cover"
+                loading="lazy"
+              />
             </div>
-            <div
-              aria-hidden="true"
-              className="absolute inset-0 flex items-center justify-center"
-            >
-              <div className="h-1/2 w-1/2 rounded-full border border-accent/30" />
+          ) : (
+            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl border border-muted/30 bg-gradient-to-br from-primary/15 via-background to-accent/15">
+              {/* Decorative layered rings */}
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 flex items-center justify-center"
+              >
+                <div className="h-3/4 w-3/4 rounded-full border border-primary/20" />
+              </div>
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 flex items-center justify-center"
+              >
+                <div className="h-1/2 w-1/2 rounded-full border border-accent/30" />
+              </div>
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 flex items-center justify-center"
+              >
+                <div className="h-1/4 w-1/4 rounded-full bg-primary-light/10 blur-xl" />
+              </div>
+              {/* Big numeral anchored bottom-left */}
+              <span className="absolute bottom-6 left-6 text-7xl font-bold text-primary-light/30 md:text-8xl">
+                {position}
+              </span>
             </div>
-            <div
-              aria-hidden="true"
-              className="absolute inset-0 flex items-center justify-center"
-            >
-              <div className="h-1/4 w-1/4 rounded-full bg-primary-light/10 blur-xl" />
-            </div>
-            {/* Big numeral anchored bottom-left */}
-            <span className="absolute bottom-6 left-6 text-7xl font-bold text-primary-light/30 md:text-8xl">
-              {position}
-            </span>
-          </div>
+          )}
         </motion.div>
       </motion.div>
     </Section>

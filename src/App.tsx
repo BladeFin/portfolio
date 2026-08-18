@@ -1,38 +1,33 @@
-import BackgroundDots from './components/BackgroundDots';
-import NavBar from './components/NavBar';
-import Hero from './components/Hero';
-import About from './components/About';
-import FeaturedProjects from './components/FeaturedProjects';
-import Projects from './components/Projects';
-import FeaturedPublications from './components/FeaturedPublications';
-import Publications from './components/Publications';
-import Contact from './components/Contact';
-import {
-  featuredProjects,
-  featuredPublications,
-} from './content/data';
-import { useActiveSection } from './hooks/useActiveSection';
+import BackgroundDots from "./components/BackgroundDots";
+import NavBar from "./components/NavBar";
+import Hero from "./components/Hero";
+import About from "./components/About";
+import FeaturedProjects from "./components/FeaturedProjects";
+import Projects from "./components/Projects";
+import Contact from "./components/Contact";
+import { featuredProjects, featuredPublications } from "./content/data";
+import { useActiveSection } from "./hooks/useActiveSection";
 
 // All ids the observer tracks. Featured-project sub-sections and
 // "see all" sections all count toward the same nav-link highlight.
 const ALL_OBSERVED_IDS = [
-  'home',
-  'about',
+  "home",
+  "about",
   // Featured projects (first is `projects`, others are `project-N`).
-  'projects',
+  "projects",
   ...Array.from(
     { length: Math.max(0, featuredProjects.length - 1) },
     (_, i) => `project-${i + 2}`,
   ),
-  'all-projects',
+  "all-projects",
   // Featured publications (first is `publications`, others are `publication-N`).
-  'publications',
+  "publications",
   ...Array.from(
     { length: Math.max(0, featuredPublications.length - 1) },
     (_, i) => `publication-${i + 2}`,
   ),
-  'all-publications',
-  'contact',
+  "all-publications",
+  "contact",
 ] as const;
 
 export default function App() {
@@ -54,15 +49,15 @@ export default function App() {
         <About />
         <FeaturedProjects projects={featuredProjects} />
         <Projects />
-        <FeaturedPublications publications={featuredPublications} />
-        <Publications />
+        {/* <FeaturedPublications publications={featuredPublications} />
+        <Publications /> */}
         <Contact />
       </main>
       {/* `snap-end` makes the page end a valid scroll-snap position: instead
           of mandatory snap yanking back to Contact, scrolling past it rests
           with the footer at the bottom of the viewport. */}
       <footer className="snap-end border-t border-muted/20 py-10 text-center text-xs uppercase tracking-[0.25em] text-muted">
-        © {new Date().getFullYear()} Jordan Reeves · Built with React, Vite
+        © {new Date().getFullYear()} Connor Koefelda · Built with React, Vite
         &amp; Tailwind
       </footer>
     </div>

@@ -60,6 +60,36 @@ body {
   @apply outline-none ring-2 ring-primary-light ring-offset-2 ring-offset-background;
 }
 
+/* --- Scrollbars ---------------------------------------------------------- */
+
+/* Dark, slim scrollbars everywhere — the page and internal containers
+   (like the "see all" grids) share the same look instead of showing the
+   browser's default chunky light bar. The thumb is a touch lighter than
+   the page background so it's visible but quiet. */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #474747;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5a5a5a;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #474747 transparent;
+}
+
 /* Reduce-motion friendliness. */
 @media (prefers-reduced-motion: reduce) {
   html {

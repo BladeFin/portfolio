@@ -6,12 +6,34 @@
  * touching component code.
  */
 
+/** External links — update with your real URLs. */
+export const links = {
+  linkedin: "https://www.linkedin.com/in/connor-koefelda",
+  /** Served from public/resume.pdf — drop your PDF there. */
+  // Relative (not `/resume.pdf`) so it works on GitHub Pages project pages
+  // (`https://<user>.github.io/<repo>/`), matching the `base: "./"` in vite.config.ts.
+  resume: "./resume.pdf",
+};
+
+export interface ProjectLink {
+  label: string;
+  url: string;
+}
+
 export interface Project {
   title: string;
   category: string;
   description: string;
   tech: string[];
-  link: string;
+  /** One button per entry — e.g. "Website", "GitHub", "Marketplace". */
+  links?: ProjectLink[];
+  /**
+   * Screenshot/logo for the featured section, e.g. "./projects/terminal-watch.png".
+   * Drop the file in public/projects/ (created by the build) and reference it
+   * from there — it's copied to the site root as-is. Empty string = the
+   * decorative placeholder shows instead.
+   */
+  image?: string;
   /** When true, the project gets its own full-height "case study" section. */
   featured?: boolean;
 }
@@ -29,93 +51,52 @@ export interface Publication {
 
 export const projects: Project[] = [
   {
-    title: 'Glyph — Type Specimen Explorer',
-    category: 'Web · Design System',
+    title: "Terminal Watch",
+    category: "Developer Tools",
     description:
-      'A searchable specimen library for variable fonts, with live axes previews and OpenType feature toggles. Built so a type designer can answer "what does this look like?" without round-tripping a foundry.',
-    tech: ['React', 'TypeScript', 'Vite', 'OpenType.js'],
-    link: '#',
+      "A VS Code extension that watches terminal output for configurable patterns and delivers native desktop notifications, even from containerized environments.",
+    tech: ["VS Code API", "TypeScript", "Node.js"],
+    links: [
+      { label: "GitHub", url: "https://github.com/BladeFin/terminal-watch" }, // TODO: add the repo URL
+      {
+        label: "Marketplace",
+        url: "https://marketplace.visualstudio.com/items?itemName=BladeFin.terminal-watch-pack",
+      },
+    ],
+    image: "", // TODO: ./projects/terminal-watch.png
     featured: true,
   },
   {
-    title: 'Tide — Coastal Forecast Dashboard',
-    category: 'Web · Data Vis',
+    title: "Flowkey",
+    category: "Productivity Tool · Desktop Utility",
     description:
-      'A responsive dashboard layering tide, swell, and wind forecasts on an interactive map. Offline-first via IndexedDB so it stays usable at the cliff edge with no signal.',
-    tech: ['SvelteKit', 'MapLibre', 'D3', 'PWA'],
-    link: '#',
+      "A lightweight Windows productivity daemon for launching apps and toggling custom mini-apps with keyboard shortcuts.  Built for minimal overhead and easy extensibility.",
+    tech: ["Go", "Wails", "Win32 API", "TypeScript", "Windows Registry"],
+    links: [{ label: "GitHub", url: "#" }], // TODO: add the repo URL
+    image: "", // TODO: ./projects/flowkey.png
     featured: true,
   },
   {
-    title: 'Quiet Hours',
-    category: 'iOS · App',
+    title: "Rush Hour",
+    category: "Web App · PWA",
     description:
-      'A focus timer that shapes itself around your calendar, dims distractions on a per-app basis, and keeps an honest streak log you actually want to maintain.',
-    tech: ['SwiftUI', 'Combine', 'Widgets'],
-    link: '#',
+      "A Next.js full-stack application for organizing fraternity rush. Features user authentication with Supabase, real-time data management with TanStack React Query, and a modern UI built with Shadcn and Tailwind CSS. Deployed on Vercel.",
+    tech: [
+      "Supabase",
+      "React",
+      "Tailwind CSS",
+      "Shadcn",
+      "Zod",
+      "TypeScript",
+      "Next.js",
+    ],
+    links: [{ label: "Website", url: "https://fratrush.vercel.app" }],
+    image: "", // TODO: ./projects/rush-hour.png
     featured: true,
-  },
-  {
-    title: 'Field Notes CLI',
-    category: 'Tooling · OSS',
-    description:
-      'A small terminal companion for capturing annotated notes against a git repo, with fuzzy search across commits and tags.',
-    tech: ['Rust', 'tui-rs', 'git2'],
-    link: '#',
-  },
-  {
-    title: 'Print Atlas',
-    category: 'Web · Editorial',
-    description:
-      'A reading-room interface for an independent print magazine archive: paginated scans, search, and per-issue listening guides.',
-    tech: ['Next.js', 'Postgres', 'MeiliSearch'],
-    link: '#',
   },
 ];
 
-export const publications: Publication[] = [
-  {
-    title:
-      'Calibration Without Catastrophe: Robust Posterior Estimation for Sparse Surveys',
-    venue: 'Journal of Applied Statistics',
-    year: 2024,
-    authors: ['J. Reeves', 'M. Okafor'],
-    link: '#',
-    abstract:
-      'A reweighting scheme that recovers identifiable posteriors from under-designed survey instruments without the mode-seeking pathologies of common alternatives. We pair the derivation with empirical evidence on three public health data sets where ground truth is partially known.',
-    featured: true,
-  },
-  {
-    title: 'Sketching Surfaces, Smoothly: GPU Subdivision for Small Teams',
-    venue: 'ACM CHI',
-    year: 2023,
-    authors: ['J. Reeves', 'S. Park', 'L. Iwasaki'],
-    link: '#',
-    abstract:
-      'We describe a real-time Catmull–Clark subdivision pipeline that fits inside a 50 MB memory budget on commodity hardware, plus an editor that lets non-engineers sculpt meshes with a trackpad and feel the response immediately.',
-    featured: true,
-  },
-  {
-    title:
-      'Microinteractions for Macroattentional Load: When Motion Is the Wrong Default',
-    venue: 'DIS Companion',
-    year: 2022,
-    authors: ['J. Reeves'],
-    link: '#',
-    abstract:
-      'An empirical study of motion-driven feedback under dual-task load, with design guidelines for accessibility-first motion copy. Highlights the small, costly moments when an animation is delightful for one user and disorienting for another.',
-    featured: true,
-  },
-  {
-    title: 'A Field Guide to Composable Color Tokens',
-    venue: 'Smashing Magazine',
-    year: 2021,
-    authors: ['J. Reeves'],
-    link: '#',
-    abstract:
-      'Patterns for organizing design tokens across themes, brands, and density modes without losing semantic intent — illustrated with case studies from three production design systems.',
-  },
-];
+export const publications: Publication[] = [];
 
 /** Convenience selectors — ordering matches the source array. */
 export const featuredProjects: Project[] = projects.filter((p) => p.featured);

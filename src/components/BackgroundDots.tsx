@@ -60,7 +60,7 @@ export default function BackgroundDots() {
       .split(/\s+/)
       .map(Number);
     const rgb = channels.length === 3 ? channels : [206, 160, 126]; // fallback: bronze
-    const dotAlpha = 0.24;
+    const dotAlpha = 0.3;
     const dotColor = `rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${dotAlpha})`;
 
     const dpr = Math.min(window.devicePixelRatio || 1, 2);

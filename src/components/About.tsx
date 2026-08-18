@@ -1,4 +1,5 @@
-import Section from './Section';
+import Section from "./Section";
+import { links } from "../content/data";
 
 export default function About() {
   return (
@@ -7,50 +8,38 @@ export default function About() {
         <p className="mb-4 text-xs uppercase tracking-[0.4em] text-accent md:text-sm">
           About
         </p>
-        <h2 className="mb-10 text-3xl font-bold leading-tight text-primary-light md:text-5xl">
-          A designer who codes, and a coder who cares about design.
+        <h2 className="mb-4 text-3xl font-bold leading-tight text-primary-light md:text-5xl">
+          I like to build things myself.
         </h2>
+        <div className="mb-8 flex flex-wrap items-center gap-x-4 gap-y-2">
+          <h4 className="text-xl font-bold leading-tight text-accent md:text-2xl">
+            Want the professional version?
+          </h4>
+          <a
+            href={links.resume}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-xl font-bold leading-tight text-accent underline decoration-accent/60 underline-offset-4 transition-colors duration-200 hover:text-primary-light hover:decoration-primary-light/60 md:text-2xl"
+          >
+            View my resume
+            <span aria-hidden="true" className="text-base">
+              ↗
+            </span>
+          </a>
+        </div>
 
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-5 md:gap-16">
-          <div className="md:col-span-3 space-y-5 text-base leading-relaxed text-muted md:text-lg">
-            <p>
-              For the past several years I've been helping small teams ship
-              polished interfaces — from data dashboards to mobile clients to
-              libraries other developers reach for. I care most about the
-              long, quiet work of making software feel obvious.
-            </p>
-            <p>
-              When I'm not at a screen I sketch typefaces, run badly, and
-              read paper journals about things I don't fully understand.
-            </p>
-          </div>
-
-          <aside className="md:col-span-2">
-            <dl className="grid grid-cols-1 gap-6 border-t border-muted/30 pt-6 text-sm md:grid-cols-1 md:border-l md:border-t-0 md:pl-8 md:pt-0">
-              <div>
-                <dt className="mb-1 uppercase tracking-[0.3em] text-accent text-xs">
-                  Currently
-                </dt>
-                <dd className="text-primary-light">
-                  Senior product engineer at a small research-tools startup.
-                </dd>
-              </div>
-              <div>
-                <dt className="mb-1 uppercase tracking-[0.3em] text-accent text-xs">
-                  Stack
-                </dt>
-                <dd className="text-primary-light">
-                  TypeScript, React, SwiftUI, Rust, Tailwind, D3.
-                </dd>
-              </div>
-              <div>
-                <dt className="mb-1 uppercase tracking-[0.3em] text-accent text-xs">
-                  Based
-                </dt>
-                <dd className="text-primary-light">Lisbon, Portugal.</dd>
-              </div>
-            </dl>
-          </aside>
+        <div className="md:col-span-3 space-y-5 text-base leading-relaxed text-muted md:text-lg">
+          <p>
+            I'm studying computer science at the University of Illinois
+            Urbana-Champaign and spend most of my time building software,
+            experimenting with new technology, and trying to understand things
+            by taking them apart.
+          </p>
+          <p>
+            My interests tend to bounce around, but lately I've been focused on
+            developer tools, AI-assisted programming, and building software that
+            people actually want to use.
+          </p>
         </div>
       </div>
     </Section>

@@ -42,18 +42,26 @@ export default function Projects() {
                   </li>
                 ))}
               </ul>
-              <a
-                href={project.link}
-                className="mt-auto inline-flex items-center gap-1 text-sm text-primary-light transition-colors duration-200 hover:text-primary"
-              >
-                View project
-                <span
-                  aria-hidden="true"
-                  className="transition-transform duration-200 group-hover:translate-x-1"
-                >
-                  →
-                </span>
-              </a>
+              {project.links && project.links.length > 0 && (
+                <div className="mt-auto flex flex-wrap gap-3">
+                  {project.links.map((link) => {
+                    const external = /^https?:/.test(link.url);
+                    return (
+                      <a
+                        key={link.label}
+                        href={link.url}
+                        {...(external
+                          ? { target: "_blank", rel: "noopener noreferrer" }
+                          : {})}
+                        className="inline-flex items-center gap-1.5 rounded-full border border-primary/60 px-4 py-1.5 text-xs uppercase tracking-[0.2em] text-primary-light transition-colors duration-200 hover:bg-primary hover:text-background"
+                      >
+                        {link.label}
+                        <span aria-hidden="true">{external ? "↗" : "→"}</span>
+                      </a>
+                    );
+                  })}
+                </div>
+              )}
             </article>
           ))}
         </div>

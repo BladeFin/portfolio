@@ -37,20 +37,31 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.25 }}
           className="mx-auto mb-10 max-w-2xl text-base leading-relaxed text-muted md:text-xl"
         >
-          I build thoughtful, accessible digital products at the intersection of
-          design and engineering — with a soft spot for typography, motion, and
-          well-named variables.
+          I'm a computer science student who loves to build, break, and
+          understand everything.
         </motion.p>
-        <motion.a
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          href="#about"
-          className="inline-flex items-center gap-2 rounded-full border border-primary px-8 py-3 text-xs uppercase tracking-[0.3em] text-primary-light transition-colors duration-200 hover:bg-primary hover:text-background"
-        >
-          View my work
-          <span aria-hidden="true">→</span>
-        </motion.a>
+        <div className="flex flex-wrap items-center justify-center gap-4">
+          <motion.a
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            href="#about"
+            className="inline-flex items-center gap-2 rounded-full border border-primary px-8 py-3 text-xs uppercase tracking-[0.3em] text-primary-light transition-colors duration-200 hover:bg-primary hover:text-background"
+          >
+            View my work
+            <span aria-hidden="true">↓</span>
+          </motion.a>
+          <motion.a
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            href="#contact"
+            className="inline-flex items-center gap-2 rounded-full border border-primary px-8 py-3 text-xs uppercase tracking-[0.3em] text-primary-light transition-colors duration-200 hover:bg-primary hover:text-background"
+          >
+            Get in touch
+            <span aria-hidden="true">→</span>
+          </motion.a>
+        </div>
       </div>
     </section>
   );
