@@ -41,6 +41,7 @@ npm run build     # production build → ./dist
 
 ## Deployment
 
-Deployed to GitHub Pages via `npm run deploy` (publishes `dist/` to the
-`gh-pages` branch). The build uses a relative base path so the same output
+Deployed to GitHub Pages via GitHub Actions. Every push to `main` triggers
+an automated build and deployment, so the live site always reflects the
+latest changes. The build uses a relative base path, so the same output
 works on user or project pages.
