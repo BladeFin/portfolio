@@ -57,10 +57,10 @@ export const projects: Project[] = [
       "A VS Code extension that watches terminal output for configurable patterns and delivers native desktop notifications, even from containerized environments.",
     tech: ["VS Code API", "TypeScript", "Node.js"],
     links: [
-      { label: "GitHub", url: "https://github.com/BladeFin/terminal-watch" }, // TODO: add the repo URL
+      { label: "GitHub", url: "https://github.com/BladeFin/terminal-watch" },
       {
         label: "Marketplace",
-        url: "https://marketplace.visualstudio.com/items?itemName=BladeFin.terminal-watch-pack",
+        url: "https://marketplace.visualstudio.com/items?itemName=BladeFin.terminal-watch",
       },
     ],
     image: "", // TODO: ./projects/terminal-watch.png
