@@ -1,5 +1,5 @@
 {
-  "name": "Rush Hour Dev Environment",
+  "name": "Portfolio Site Dev Environment",
   "image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bullseye",
   "customizations": {
     "vscode": {

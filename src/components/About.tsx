@@ -36,6 +36,11 @@ export default function About() {
             by taking them apart.
           </p>
           <p>
+            I'm graduating with my BS in CS this spring ('27), then sticking
+            around UIUC for another year to get my master's. I'm hoping to spend
+            the summer putting what I've learned to work with an internship.
+          </p>
+          <p>
             My interests tend to bounce around, but lately I've been focused on
             developer tools, AI-assisted programming, and building software that
             people actually want to use.
