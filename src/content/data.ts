@@ -94,6 +94,31 @@ export const projects: Project[] = [
     image: "", // TODO: ./projects/rush-hour.png
     featured: true,
   },
+  {
+    title: "Short-Form Content Generator",
+    category: "Media Automation",
+    description:
+      "An AI-powered Python media pipeline that turns a text script and background video into short-form content with generated narration, timed subtitles, and platform-specific cuts for TikTok, Instagram, and YouTube.",
+    tech: ["Python", "FFmpeg", "Google Text-to-Speech", "OpenAI Whisper"],
+    links: [
+      {
+        label: "Repository",
+        url: "https://github.com/BladeFin/shortform-generator",
+      },
+    ],
+    image: "./projects/shortform-generator.png",
+    featured: false,
+  },
+  {
+    title: "This Site",
+    category: "Portfolio",
+    description:
+      "A single-page portfolio website showcasing software projects, built with React 19, TypeScript, Vite 6, and Tailwind CSS. Features CSS Scroll Snap for a smooth full-screen slide-by-slide experience with sticky navbar navigation.",
+    tech: ["React 19", "TypeScript", "Tailwind CSS"],
+    links: [{ label: "GitHub", url: "https://github.com/BladeFin/portfolio" }],
+    image: "", // TODO: ./projects/portfolio.png
+    featured: false,
+  },
 ];
 
 export const publications: Publication[] = [];
