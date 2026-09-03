@@ -12,7 +12,7 @@ export const links = {
   /** Served from public/resume.pdf — drop your PDF there. */
   // Relative (not `/resume.pdf`) so it works on GitHub Pages project pages
   // (`https://<user>.github.io/<repo>/`), matching the `base: "./"` in vite.config.ts.
-  resume: "./resume.pdf",
+  resume: "./_KOEFELDA_resume.pdf",
 };
 
 export interface ProjectLink {
@@ -72,7 +72,7 @@ export const projects: Project[] = [
     description:
       "A lightweight Windows productivity daemon for launching apps and toggling custom mini-apps with keyboard shortcuts.  Built for minimal overhead and easy extensibility.",
     tech: ["Go", "Wails", "Win32 API", "TypeScript", "Windows Registry"],
-    links: [{ label: "GitHub", url: "#" }], // TODO: add the repo URL
+    // links: [{ label: "GitHub", url: "#" }], // TODO: add the repo URL
     image: "", // TODO: ./projects/flowkey.png
     featured: true,
   },
