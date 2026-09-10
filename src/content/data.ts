@@ -91,7 +91,7 @@ export const projects: Project[] = [
       "Next.js",
     ],
     links: [{ label: "Website", url: "https://fratrush.vercel.app" }],
-    image: "./projects/rush-hour.jpg",
+    image: "./projects/rush-hour.png",
     featured: true,
   },
   {
@@ -106,7 +106,7 @@ export const projects: Project[] = [
         url: "https://github.com/BladeFin/shortform-generator",
       },
     ],
-    image: "./projects/shortform-generator.png",
+    image: "", //TODO: ./projects/shortform-generator.png
     featured: false,
   },
   {
