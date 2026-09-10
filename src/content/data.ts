@@ -90,7 +90,13 @@ export const projects: Project[] = [
       "TypeScript",
       "Next.js",
     ],
-    links: [{ label: "Website", url: "https://fratrush.vercel.app" }],
+    links: [
+      {
+        label: "GitHub (public)",
+        url: "https://github.com/BladeFin/rush-hour-showcase/",
+      },
+      { label: "Website", url: "https://fratrush.vercel.app" },
+    ],
     image: "./projects/rush-hour.png",
     featured: true,
   },
