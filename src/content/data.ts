@@ -63,7 +63,7 @@ export const projects: Project[] = [
         url: "https://marketplace.visualstudio.com/items?itemName=BladeFin.terminal-watch",
       },
     ],
-    image: "", // TODO: ./projects/terminal-watch.png
+    image: "./projects/terminal-watch.png",
     featured: true,
   },
   {
@@ -91,7 +91,7 @@ export const projects: Project[] = [
       "Next.js",
     ],
     links: [{ label: "Website", url: "https://fratrush.vercel.app" }],
-    image: "", // TODO: ./projects/rush-hour.png
+    image: "./projects/rush-hour.jpg",
     featured: true,
   },
   {
@@ -102,7 +102,7 @@ export const projects: Project[] = [
     tech: ["Python", "FFmpeg", "Google Text-to-Speech", "OpenAI Whisper"],
     links: [
       {
-        label: "Repository",
+        label: "GitHub",
         url: "https://github.com/BladeFin/shortform-generator",
       },
     ],
@@ -116,7 +116,7 @@ export const projects: Project[] = [
       "A single-page portfolio website showcasing software projects, built with React 19, TypeScript, Vite 6, and Tailwind CSS. Features CSS Scroll Snap for a smooth full-screen slide-by-slide experience with sticky navbar navigation.",
     tech: ["React 19", "TypeScript", "Tailwind CSS"],
     links: [{ label: "GitHub", url: "https://github.com/BladeFin/portfolio" }],
-    image: "", // TODO: ./projects/portfolio.png
+    image: "./projects/flowkey.png",
     featured: false,
   },
 ];
