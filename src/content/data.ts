@@ -73,7 +73,7 @@ export const projects: Project[] = [
       "A lightweight Windows productivity daemon for launching apps and toggling custom mini-apps with keyboard shortcuts.  Built for minimal overhead and easy extensibility.",
     tech: ["Go", "Wails", "Win32 API", "TypeScript", "Windows Registry"],
     // links: [{ label: "GitHub", url: "#" }], // TODO: add the repo URL
-    image: "", // TODO: ./projects/flowkey.png
+    image: "./projects/flowkey.png",
     featured: true,
   },
   {
@@ -116,7 +116,7 @@ export const projects: Project[] = [
       "A single-page portfolio website showcasing software projects, built with React 19, TypeScript, Vite 6, and Tailwind CSS. Features CSS Scroll Snap for a smooth full-screen slide-by-slide experience with sticky navbar navigation.",
     tech: ["React 19", "TypeScript", "Tailwind CSS"],
     links: [{ label: "GitHub", url: "https://github.com/BladeFin/portfolio" }],
-    image: "./projects/flowkey.png",
+    image: "", //TODO: ./projects/portfolio.png
     featured: false,
   },
 ];
