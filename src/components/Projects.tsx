@@ -35,7 +35,7 @@ export default function Projects() {
           See all
         </p>
         <h2 className="mb-12 text-3xl font-bold leading-tight text-primary-light md:text-5xl">
-          All projects
+          More projects
         </h2>
 
         {/* Soft frame around the scrollable grid — same radius and border
